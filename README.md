@@ -1,3 +1,3 @@
-# beginning-ruby
+# Beginning Ruby
 
 Projects from Beginning Ruby
