@@ -57,3 +57,4 @@ puts
 puts "Summary:\n\n" + ideal_sentences.join(". ") + "."
 puts
 puts "-- End of analysis"
+puts
