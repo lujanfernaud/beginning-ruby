@@ -8,6 +8,8 @@ require './wordplay'
 class Bot
 	attr_reader :name
 
+	# Initializes the bot object, loads external YAML data
+	# file and sets the bot's name.
 	def initialize(options)
 		@name = options[:name] || "Unnamed Bot"
 		begin
@@ -17,14 +19,17 @@ class Bot
 		end
 	end
 
+	# Returns a random greeting from the bot's data file
 	def greeting
 		random_response :greeting
 	end
 
+	# Returns a random farewell from the bot's data file
 	def farewell
 		random_response :farewell
 	end
 
+	# Responds to input text
 	def response_to(input)
 		prepared_input = preprocess(input).downcase
 		sentence = best_sentence(prepared_input)
@@ -34,20 +39,24 @@ class Bot
 
 	private
 
+	# Chooses a random response phrase from the :responses hash
 	def random_response(key)
-		random_index = rand(@data[:responses][key].length)
-		@data[:responses][key][random_index].gsub(/\[name\], @name/)
+		@data[:responses][key].sample.gsub(/\[name\]/, @name)
 	end
 
+	# Performs preprocessing tasks upon all input
 	def preprocess(input)
-		perform_substitutions input
+		perform_substitutions(input)
 	end
 
+	# Substitutes words and phrases as dictated by :presubs data
 	def perform_substitutions(input)
 		@data[:presubs].each { |s| input.gsub!(s[0], s[1]) }
 		input
 	end
 
+	# We search for the sentence that uses the most single
+	# word keys from :responses
 	def best_sentence(input)
 		hot_words = @data[:responses].keys.select do |k|
 			k.class == String && k =~ /^\w+$/
@@ -56,6 +65,7 @@ class Bot
 		WordPlay.best_sentence(input.sentences, hot_words)
 	end
 
+	# Collect all responses that could be used
 	def possible_responses(sentence)
 		responses = []
 

@@ -1,5 +1,7 @@
 ---
 :presubs:
+- - i'm
+  - i am
 - - dont
   - do not
 - - don't
@@ -20,7 +22,7 @@
   - family
 :responses:
   :default:
-  - I don't understand
+  - I don't understand.
   - What?
   - Huh?
   - Tell me about something else.
@@ -41,6 +43,8 @@
   - There's no need to apologize.
   - No need to apologize.
   - No need to feel sorry about it.
+  on your mind:
+  - My mind is vast and clear as a cloudless sky.
   different:
   - How is it different?
   - What has changed?

@@ -6,6 +6,7 @@ require 'yaml'
 
 bot_data = {
 	:presubs => [
+		["i'm", "i am"],
 		["dont", "do not"],
 		["don't", "do not"],
 		["youre", "you're"],
@@ -19,7 +20,7 @@ bot_data = {
 
 	:responses => {
 		:default    	=> [
-											"I don't understand",
+											"I don't understand.",
 											"What?",
 											"Huh?",
 											"Tell me about something else.",
@@ -41,6 +42,7 @@ bot_data = {
 											"No need to apologize.",
 											"No need to feel sorry about it."
 									 	 ],
+		'on your mind'=> ["My mind is vast and clear as a cloudless sky."],
 		'different'	  => [
 									 		"How is it different?",
 									 		"What has changed?"
